@@ -1,6 +1,9 @@
 angular.module 'octositeAngular'
-  .config ($stateProvider, $urlRouterProvider) ->
+  .config ($stateProvider, $urlRouterProvider, $locationProvider) ->
     'ngInject'
+
+    $locationProvider.html5Mode enabled: true, requireBase: false
+
     $stateProvider
       .state 'home',
         url: '/'

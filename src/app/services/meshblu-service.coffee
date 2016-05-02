@@ -3,7 +3,7 @@ class MeshbluService
     @userService = userService
 
   connect: (config, callback) =>
-    config = config || @userService.getMeshbluConfig()
+    config = @userService.getMeshbluConfig() if !config.uuid
     @conn = meshblu.createConnection(config)
     @conn.on 'ready', (data) =>
       callback data

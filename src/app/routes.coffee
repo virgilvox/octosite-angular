@@ -14,6 +14,7 @@ angular.module 'octositeAngular'
         controllerAs: 'login'
       .state 'logout',
         url: '/logout'
+        templateUrl: 'app/pages/logout.html'
         controller: 'LogOutController'
         controllerAs: 'logout'
       .state 'authenticated',

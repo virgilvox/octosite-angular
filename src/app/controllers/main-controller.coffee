@@ -15,7 +15,7 @@ angular.module 'octositeAngular'
 
         meshbluService.getMyDevices {}, (data) =>
           console.log data.devices
-          $scope.devices = _.filter data.devices, (device) -> device.name? 
+          $scope.devices = _.filter data.devices, (device) -> device.name?
           $scope.$apply()
 
         meshbluService.onMessage (message) =>

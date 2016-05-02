@@ -1,0 +1,10 @@
+<md-list>
+  <md-list-item class="md-3-line" ng-repeat='device in devices'>
+    <div class="md-list-item-text" layout="column">
+      <h3>{{device.name}}</h3>
+      <h4>{{device.type}}</h4>
+      <p>Online: {{device.online}}</p>
+    </div>
+    <md-divider ></md-divider>
+  </md-list-item>
+</md-list>

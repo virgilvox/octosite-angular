@@ -2,4 +2,6 @@ angular.module 'octositeAngular'
   .controller 'LogOutController', ($cookies, $state, $timeout) ->
     'ngInject'
     $cookies.remove 'meshbluAuth'
-    $state.go 'home'
+    setTimeout ( ->
+      $state.go 'home'
+    ), 2000

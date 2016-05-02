@@ -8,5 +8,9 @@ angular.module 'octositeAngular'
       vm.loggedOut = true
     else
       vm.loggedOut = false
+      conn = meshblu.createConnection(userService.getMeshbluConfig())
 
-    console.log userService.getMeshbluConfig()
+      conn.on 'ready', (data) ->
+         console.log data
+         conn.whoami uuid: data.uuid, (device) ->
+           console.log device

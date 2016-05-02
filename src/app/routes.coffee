@@ -12,8 +12,16 @@ angular.module 'octositeAngular'
         controllerAs: 'main'
       .state 'login',
         url: '/login'
-        templateUrl: 'app/pages/login.html'
         controller: 'LoginController'
         controllerAs: 'login'
+      .state 'logout',
+        url: '/logout'
+        controller: 'LogOutController'
+        controllerAs: 'logout'
+      .state 'authenticated',
+        url: '/authenticated'
+        templateUrl: 'app/pages/authenticated.html'
+        controller: 'AuthController'
+        controllerAs: 'auth'
 
     $urlRouterProvider.otherwise '/'

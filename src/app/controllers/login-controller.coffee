@@ -1,4 +1,4 @@
 angular.module 'octositeAngular'
-  .controller 'LoginController', ($timeout) ->
+  .controller 'LoginController', ($window, $timeout, CLIENT_ID) ->
     'ngInject'
-    console.log 'yo'
+    $window.location.href = "https://oauth.octoblu.com/authorize/?client_id=" + CLIENT_ID + "&response_type=token"

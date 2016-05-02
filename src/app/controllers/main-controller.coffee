@@ -1,20 +1,22 @@
 angular.module 'octositeAngular'
   .controller 'MainController', ($scope, $cookies, meshbluService, $timeout) ->
     'ngInject'
-    vm = this
+    @vm = this
     meshbluAuth = $cookies.get 'meshbluAuth'
-
+    @scope = $scope
     if !meshbluAuth?
-      vm.loggedOut = true
+      @vm.loggedOut = true
     else
-      vm.loggedOut = false
+      @vm.loggedOut = false
       meshbluService.connect {}, (data) =>
 
         meshbluService.whoami (device) =>
           console.log device
 
-        meshbluService.getMyDevices type: 'device:freeboard', (data) =>
-          console.log data
+        meshbluService.getMyDevices {}, (data) =>
+          console.log data.devices
+          $scope.devices = _.filter data.devices, (device) -> device.name? 
+          $scope.$apply()
 
         meshbluService.onMessage (message) =>
           console.log message
